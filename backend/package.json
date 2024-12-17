@@ -1,0 +1,28 @@
+{
+  "name": "videopod",
+  "version": "1.0.0",
+  "description": "A powerfull SAAS application built to play around with video files.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "saas",
+    "cloudinary",
+    "ffmepeg",
+    "ai"
+  ],
+  "author": "Siddhartha Mukherjee",
+  "license": "ISC",
+  "dependencies": {
+    "@google-cloud/speech": "^6.7.0",
+    "@google/generative-ai": "^0.21.0",
+    "cloudinary": "^2.5.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "multer": "^1.4.5-lts.1"
+  }
+}
