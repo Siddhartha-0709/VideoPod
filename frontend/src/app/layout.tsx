@@ -12,7 +12,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         <meta property="og:title" content="Your Journey to Stunning Videos Starts Now" />
         <meta property="og:description" content="Experience the ultimate toolkit for effortless video transformation" />
-        <meta property="og:image" content="VideoPod.png" />
+        <meta property="og:image" content="/VideoPod.png" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://video-pod.vercel.app/" />
 
@@ -20,7 +20,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Your Journey to Stunning Videos Starts Now" />
         <meta name="twitter:description" content="Experience the ultimate toolkit for effortless video transformation" />
-        <meta name="twitter:image" content="VideoPod.png" />
+        <meta name="twitter:image" content="/VideoPod.png" />
       </head>
       <body>
         <SessionProvider>{children}</SessionProvider>
