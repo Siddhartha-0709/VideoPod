@@ -14,11 +14,18 @@ const safeSendResponse = (res, responseSent, statusCode, data) => {
 
 const handleTemporaryCleanup = (directory) => {
     setTimeout(() => {
-        fs.rmSync(directory, { recursive: true, force: true });
-        console.log(`Temporary files in '${directory}' deleted`);
+        if (fs.existsSync(directory)) {
+            fs.rmSync(directory, { recursive: true, force: true });
+            console.log(`Temporary files in '${directory}' deleted`);
+        }
+
+        directory = 'public/temp';
+        if (!fs.existsSync(directory)) {
+            fs.mkdirSync(directory, { recursive: true });
+        }
+
     }, 300000); // Cleanup after 5 minutes
 };
-
 
 const keyMoments = async (req, res) => {
     const responseSent = { sent: false };
@@ -140,6 +147,9 @@ const createSegment = (inputVideoPath, start, end, outputPath) => {
 const stabilization = async (req, res) => {
     const responseSent = { sent: false };
     try {
+        const tempDir = 'public/temp';
+        if (!fs.existsSync(tempDir)) fs.mkdirSync(tempDir);
+
         const file = req.file;
         if (!file) return safeSendResponse(res, responseSent, 400, { error: 'File not provided' });
 
@@ -191,6 +201,9 @@ const stabilization = async (req, res) => {
 const compression = async (req, res) => {
     const responseSent = { sent: false };
     try {
+        const tempDir = 'public/temp';
+        if (!fs.existsSync(tempDir)) fs.mkdirSync(tempDir);
+
         const file = req.file;
         const compressionLevel = parseInt(req.body.compressionLevel, 10);
         if (!file || isNaN(compressionLevel)) return safeSendResponse(res, responseSent, 400, { error: 'Invalid inputs provided' });
@@ -239,6 +252,9 @@ const compression = async (req, res) => {
 const conversion = async (req, res) => {
     const responseSent = { sent: false };
     try {
+        const tempDir = 'public/temp';
+        if (!fs.existsSync(tempDir)) fs.mkdirSync(tempDir);
+
         const file = req.file;
         const newFormat = req.body.newFormat?.toLowerCase();
         if (!file || !newFormat) return safeSendResponse(res, responseSent, 400, { error: 'Invalid inputs provided' });
@@ -276,6 +292,8 @@ const conversion = async (req, res) => {
 const resizeVideoDimensions = async (req, res) => {
     const responseSent = { sent: false };
     try {
+        const tempDir = 'public/temp';
+        if (!fs.existsSync(tempDir)) fs.mkdirSync(tempDir);
         const file = req.file;
         const { newWidth, newHeight } = req.body;
         if (!file || isNaN(newWidth) || isNaN(newHeight)) return safeSendResponse(res, responseSent, 400, { error: 'Invalid dimensions provided' });
@@ -309,6 +327,8 @@ const resizeVideoDimensions = async (req, res) => {
 const splitVideos = async (req, res) => {
     const responseSent = { sent: false };
     try {
+        const tempDir = 'public/temp';
+        if (!fs.existsSync(tempDir)) fs.mkdirSync(tempDir);
         const file = req.file;
         const splitTime = parseInt(req.body.splitTime, 10);
         if (!file || isNaN(splitTime) || splitTime <= 0) return safeSendResponse(res, responseSent, 400, { error: 'Invalid split time provided' });

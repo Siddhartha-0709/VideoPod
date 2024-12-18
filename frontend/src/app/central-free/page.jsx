@@ -41,18 +41,46 @@ export default function VideoProcessingPage() {
 
     const handleFileUpload = (uploadedFiles) => {
         const file = uploadedFiles[0];
+    
+        // Check if the file is a video and the size is less than 500MB
         if (file.type.startsWith('video/') && file.size < 500 * 1024 * 1024) {
-            setFiles(uploadedFiles);
-            // toast.success('File uploaded successfully');
+            // Create a video element to check the resolution
+            const videoElement = document.createElement('video');
+    
+            // Event listener to check the resolution after video metadata is loaded
+            videoElement.onloadedmetadata = () => {
+                const width = videoElement.videoWidth;
+                const height = videoElement.videoHeight;
+                console.log('Video Dimensions', width, 'X', height);
+    
+                // Check if the resolution is 720p or higher (1280x720)
+                if (width >= 1280 && height >= 720) {
+                    const message = 'Please select a video with a resolution lower than 720p.';
+                    console.log(message);
+                    toast.error(message);
+                    setFiles([]);  // Clear the selected files
+                } else {
+                    // If everything is valid, set the file
+                    setFiles(uploadedFiles);
+                    // toast.success('File uploaded successfully');
+                }
+            };
+    
+            // Load the video file to trigger the metadata loading
+            const objectURL = URL.createObjectURL(file);
+            videoElement.src = objectURL;
         } else {
+            // Check if the file is too large or not a video
             const message = file.size >= 500 * 1024 * 1024
                 ? 'Please select a file less than 500MB.'
                 : 'Not a video file';
             console.log(message);
             toast.error(message);
-            setFiles([]);
+            setFiles([]);  // Clear the selected files
         }
     };
+    
+
 
     const actions = [
         { id: 'compression', title: 'Video Compression', description: 'Reduce file size with various quality options' },
