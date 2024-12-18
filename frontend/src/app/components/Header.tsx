@@ -57,7 +57,6 @@ export default function Header() {
             <Link href="https://wa.me/6289368650" className="text-white hover:text-orange-200 transition mt-1">
               Contact
             </Link>
-
             <Button className="bg-orange-500 text-black hover:bg-slate-200"
               onClick={authenticateUser}
             >
@@ -85,25 +84,25 @@ export default function Header() {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden bg-black shadow-md">
+        <div className="md:hidden bg-black shadow-md border border-slate-500 rounded-b-xl">
           <nav className="flex flex-col space-y-4 py-4 px-6">
-            <Link href="/" className="text-white hover:text-orange-200 transition">
+            <Link href="/features" className="text-white hover:text-orange-200 transition">
               Features
             </Link>
-            <Link href="/" className="text-white hover:text-orange-200 transition">
-              About Us
-            </Link>
-            <Link href="/" className="text-white hover:text-orange-200 transition">
+            <Link href="/pricing" className="text-white hover:text-orange-200 transition">
               Pricing
             </Link>
-            <Link href="/" className="text-white hover:text-orange-200 transition">
+            <Link href="https://www.linkedin.com/in/sidd-myself/" className="text-white hover:text-orange-200 transition">
+              Developer
+            </Link>
+            <Link href="https://wa.me/6289368650" className="text-white hover:text-orange-200 transition">
               Contact
             </Link>
-            <Link href="/signup">
-              <Button className="bg-orange-500 text-black hover:bg-slate-200 w-full">
-                Get Started
-              </Button>
-            </Link>
+            <Button className="bg-orange-500 text-black hover:bg-slate-200 w-full"
+              onClick={authenticateUser}
+            >
+              Get Started
+            </Button>
           </nav>
         </div>
       )}

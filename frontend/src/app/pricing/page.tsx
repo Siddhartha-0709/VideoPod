@@ -87,8 +87,8 @@ export default function PricingPage() {
             )}
             <div className="min-h-screen flex flex-col items-center justify-center bg-black text-white">
                 <div className="w-full max-w-6xl px-4 py-12">
-                    <div className="text-center mb-12">
-                        <h1 className="text-4xl font-bold">Simple Plans for Every Creator</h1>
+                    <div className="text-center mb-12 md:mt-0 mt-20">
+                        <h1 className="text-2xl md:text-4xl font-bold">Simple Plans for Every Creator</h1>
                         <p className="text-lg text-slate-300 font-light mt-4">
                             Flexible plans tailored for every creator—start free, Upgrade as you Grow
                         </p>
@@ -97,7 +97,7 @@ export default function PricingPage() {
                         {plans.map((plan) => (
                             <div key={plan.name} className="relative group">
                                 <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-teal-500 transform scale-[0.90] bg-red-500 rounded-full blur-3xl" />
-                                <div className="relative bg-black h-[57vh] border border-gray-800 rounded-2xl shadow-lg p-8 flex flex-col justify-between items-start">
+                                <div className="relative bg-black md:h-[57vh] border border-gray-800 rounded-2xl shadow-lg p-8 flex flex-col justify-between items-start">
                                     <div>
                                         <h2 className="text-3xl font-semibold">{plan.name}</h2>
                                         <h2 className="text-2xl font-semibold mb-4">{plan.price}<span className="text-sm font-light text-slate-300">/mo</span></h2>
@@ -110,11 +110,6 @@ export default function PricingPage() {
                                                 </div>
                                             ))}
                                         </div>
-                                        {/* {plan.limitations?.length > 0 && (
-                    <p className="mt-4 text-sm text-red-400">
-                      Note: {plan.limitations.length} Videos less than 10 mins.
-                    </p>
-                  )} */}
                                     </div>
                                     <div className="mt-6 flex justify-between items-center">
                                         <Button className="px-4 py-3 rounded-md bg-white text-black border hover:bg-slate-300"

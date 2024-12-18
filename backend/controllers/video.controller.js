@@ -16,7 +16,7 @@ const handleTemporaryCleanup = (directory) => {
     setTimeout(() => {
         fs.rmSync(directory, { recursive: true, force: true });
         console.log(`Temporary files in '${directory}' deleted`);
-    }, 3600000); // Cleanup after 1 hour
+    }, 300000); // Cleanup after 5 minutes
 };
 
 

@@ -40,18 +40,16 @@ export default function VideoProcessingPage() {
 
 
     const handleFileUpload = (uploadedFiles) => {
-        if (uploadedFiles[0].type.startsWith('video/')) {
+        const file = uploadedFiles[0];
+        if (file.type.startsWith('video/') && file.size < 500 * 1024 * 1024) {
             setFiles(uploadedFiles);
-            // const duration = uploadedFiles[0].duration / 60;
-            // if (duration < 10) {
-            //     console.log('Video file uploaded');
-            // } else {
-            //     console.log('Video file too long (max 10 minutes allowed)');
-            //     toast.error('Max 10 minutes allowed');
-            //     setFiles([]);
-            // }
+            // toast.success('File uploaded successfully');
         } else {
-            console.log('Not a video file');
+            const message = file.size >= 500 * 1024 * 1024
+                ? 'Please select a file less than 500MB.'
+                : 'Not a video file';
+            console.log(message);
+            toast.error(message);
             setFiles([]);
         }
     };
