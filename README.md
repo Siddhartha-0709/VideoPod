@@ -1,4 +1,4 @@
-# Video Processing SaaS
+# VideoPod - Video Processing SaaS
 
 A full-stack SaaS application for intelligent video processing, featuring compression, stabilization, and AI-powered key moment extraction.
 
@@ -59,8 +59,8 @@ The application follows a microservices architecture with containerized componen
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/video-processing-saas.git
-cd video-processing-saas
+git clone https://github.com/Siddhartha-0709/VideoPod
+cd VideoPod
 ```
 
 2. Install dependencies:
@@ -140,25 +140,12 @@ The application uses optimized FFmpeg settings for resource-constrained environm
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ## 🙏 Acknowledgments
 
 - FFmpeg community for the powerful video processing library
 - VOSK team for speech recognition capabilities
 - Google Gemini for AI-powered analysis
 
-## 📧 Contact
-
-Your Name - [@yourtwitter](https://twitter.com/yourtwitter)
 
 Project Link: [https://github.com/yourusername/video-processing-saas](https://github.com/yourusername/video-processing-saas)
 
