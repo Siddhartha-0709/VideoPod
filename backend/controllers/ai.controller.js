@@ -1,7 +1,7 @@
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import fs from 'fs';
 
-const apiKey = 'AIzaSyAHCmjlGUMpbBn8R9w-lH8UxZEXXCLzMBc';
+const apiKey = process.env.apiKey;
 
 const analyzeText = async (path) => {
     try {
